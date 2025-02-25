@@ -14,7 +14,7 @@ class Solution:
                 check=stack.pop()
                 if(openSet.index(check)!=closeSet.index(i)):
                     return False
-            else: return False 
+            else: return False #covers case where array is empty, or when the array contains other charcters
         if len(stack)==0:
             return True
         else: return False
