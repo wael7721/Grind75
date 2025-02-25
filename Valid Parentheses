@@ -1,0 +1,21 @@
+# time complexityO(n),Space Complexity O(n)
+#solution using stack
+#move until encounter a closing bracket and compate it to the previous "open" bracker at the top of the stack, if they are the mutual brackets(for example [ and ]) pop it and continue. else return false
+#in case the array at the end is not empty,the open brackets were not closed, returns false
+class Solution:
+    def isValid(self, s: str) -> bool:
+        openSet=["(","{","["]
+        closeSet=[")","}","]"]
+        stack=[]
+        for i in s:
+            if i in openSet:
+                stack.append(i)
+            elif(len(stack)!=0):
+                check=stack.pop()
+                if(openSet.index(check)!=closeSet.index(i)):
+                    return False
+            else: return False 
+        if len(stack)==0:
+            return True
+        else: return False
+    
