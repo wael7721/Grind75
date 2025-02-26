@@ -1,0 +1,16 @@
+#Solution using regex, Accepts only alphabet and numbers, spreads the string into an array then compares using two pointer i and j
+#O(N) Time Complexity, O(N) Space Complexity
+class Solution:
+    import re
+    def isPalindrome(self, s: str) -> bool:
+        s=s.lower()
+        s=findall("[a-z0-9]", s)
+        s=s[:]
+        
+        j=len(s)-1
+        for i in range(len(s)//2):
+            if(s[i]!=s[j]):
+                print(s[i],s[j])
+                return False
+            j-=1
+        return True
