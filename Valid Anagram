@@ -1,0 +1,19 @@
+O(N) Both space and Time Complexity
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        h={}
+        for i in s:
+            if i in h:
+                h[i]+=1
+            else:
+                h[i]=1
+        for i in t:
+            if i not in h: return False
+            if i in h: h[i]-=1
+        if all(i==0 for i in h.values()):
+            return True
+        return False
+#Better solution found online O(1) Space complexity
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return Counter(s) == Counter(t)
