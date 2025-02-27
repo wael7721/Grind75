@@ -13,7 +13,7 @@ class Solution:
         if all(i==0 for i in h.values()):
             return True
         return False
-#Better solution found online O(1) Space complexity
+#Better solution found online
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         return Counter(s) == Counter(t)
