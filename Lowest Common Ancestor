@@ -1,0 +1,14 @@
+#O(log(N)) Time Complexity,O(N) (Recursive Call Stack)
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        return findNode(root,p,q)
+
+def findNode(Node,p,q):
+    if(p.val<q.val):
+        if(Node and Node.val>q.val):return findNode(Node.left,p,q)
+        if(Node and Node.val<p.val):return findNode(Node.right,p,q)
+    if(q.val<p.val):
+        if(Node and Node.val>p.val):return findNode(Node.left,p,q)
+        if(Node and Node.val<q.val):return findNode(Node.right,p,q)
+    return Node
+#Another iterative solution exist be better in terms of space complexity O(1), this was my attempt
