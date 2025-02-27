@@ -1,0 +1,13 @@
+#Time Complexity O(log(n)),Space O(Log(N))
+#using Recursion
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        return BinSearch(0,len(nums)//2,len(nums),nums,target)
+def BinSearch(l,m,r,nums,target):
+    if(nums[m]==target):
+        return m
+    if(l==r):return -1
+    if(nums[m]>target):
+        return BinSearch(l,m//2,m,nums,target)
+    if(nums[m]<target):
+        return BinSearch(m+1,m+(r-m)//2,r,nums,target)
