@@ -1,0 +1,31 @@
+class MyQueue:
+
+    def __init__(self):
+        self.stackIn=[]
+        self.stackOut=[]
+
+    def push(self, x: int) -> None:
+        self.stackIn.append(x)
+
+    def pop(self) -> int:
+        self.moveInToOut()
+        return self.stackOut.pop()
+
+    def peek(self) -> int:
+        self.moveInToOut()
+        return self.stackOut[-1]
+
+    def empty(self) -> bool:
+        self.moveInToOut()
+        if not self.stackOut:
+            return True
+        return False
+
+    def moveInToOut(self):
+        if not self.stackOut:
+            while self.stackIn:
+                self.stackOut.append(self.stackIn.pop()
+#push(x)	O(1)	Append to in_stack
+#pop()	O(1) amortized, O(n) worst case	Moves elements only when out_stack is empty
+#peek()	O(1) amortized, O(n) worst case	Moves elements only when out_stack is empty
+#empty()	O(1)	Checks if both stacks are empty
