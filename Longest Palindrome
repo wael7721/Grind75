@@ -1,0 +1,16 @@
+#Time Complexity: O(n)
+#Space Complexity:O(n)
+#https://leetcode.com/problems/longest-palindrome/submissions/1560990239/
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        dic={}
+        counter=0
+        for i in s:
+            if i in dic:
+                dic.pop(i)
+                counter+=2
+            else:
+                dic[i]=1
+        if counter<len(s):
+            counter+=1
+        return counter
