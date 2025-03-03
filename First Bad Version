@@ -1,0 +1,14 @@
+#Approach similar to binary search, by discarding the left if the middle is true otherwise discard the right
+#Time complexity O(Log N) # Space Complexity O(Log N)
+class Solution:
+    def firstBadVersion(self, n: int) -> int:
+        return self.Search(0,n)
+
+    def Search(self,low,high):
+        if low+1==high:return high
+        mid=(high+low)//2
+        if isBadVersion(mid)==False:
+            low= mid
+        else:
+            high = mid
+        return self.Search(low,high)
