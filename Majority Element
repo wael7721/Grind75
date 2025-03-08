@@ -1,0 +1,10 @@
+#Time Complexity O(N), Space Complexity O(1)
+#https://leetcode.com/problems/majority-element/submissions/1562005691/
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        votes=0
+        candidate=-1
+        for num in nums:
+            if votes==0: candidate=num
+            votes+=(1 if num==candidate else -1)
+        return candidate
