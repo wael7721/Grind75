@@ -1,0 +1,11 @@
+#Solution using dictionary, a better solution is to compare length of the set of the nums to nums, if != return false
+#O(N) space and time complexity solution
+#https://leetcode.com/problems/contains-duplicate/submissions/1570850763/
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        dic={}
+        for num in nums:
+            if num in dic:
+                return True
+            dic[num]=1
+        return False
