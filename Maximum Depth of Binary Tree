@@ -1,0 +1,8 @@
+#https://leetcode.com/problems/maximum-depth-of-binary-tree/submissions/1570848941/
+#O(N) Time and Space Complexity
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        return self.finder(root)
+    def finder(self,root):
+        if root is None: return 0
+        return 1+max(self.finder(root.left),self.finder(root.right))
